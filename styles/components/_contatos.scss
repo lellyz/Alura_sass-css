@@ -1,0 +1,71 @@
+@use '../abstract/variaveis';
+@use '../abstract/mixins';
+
+#contatos {
+    @include mixins.margem_central(80%);
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    .contatos-imgs {
+        max-width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-around;
+        img {
+            width: 100%;
+            &:nth-child(n+2) {
+                width: 48%;
+            }
+        }
+    }
+    .contatos-form {   
+        max-width: 50%;     
+        background: variaveis.$gradiente-primario;
+        padding: 2rem 3rem;
+        border-radius: 2rem;
+        .titulo {
+            @include mixins.set_fonte(variaveis.$fonte-titulos, 1.9rem, variaveis.$cor-secundaria, 400);
+        }
+        .infos {
+            @include mixins.set_fonte(variaveis.$fonte-textos, 1.3rem, variaveis.$cor-primaria, 400);
+        }
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+            align-self: stretch;
+            input {
+                @include mixins.set_fonte(variaveis.$fonte-textos, 0.9rem, variaveis.$cor-primaria, 400);   
+                border: none;
+                border-radius: 2rem;
+                padding: 1rem;
+            }            
+            .form-group {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                label {
+                    //@extend .infos;  << pode ser esse tb
+                    @include mixins.set_fonte(variaveis.$fonte-textos, 1.1rem, variaveis.$cor-primaria, 600);
+                }
+                textarea {
+                    @extend input;
+                }
+            }
+            .btn {
+                @extend input;    
+                color: white; 
+                background: variaveis.$cor-secundaria;
+                margin-top: 2rem;
+                width: 100%;
+                transition: 0.3s;
+                &:hover {
+                    background: variaveis.$cor-primaria;    
+                }
+            }
+        }
+    }
+}

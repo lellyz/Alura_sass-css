@@ -1,0 +1,69 @@
+@use '../abstract/variaveis';
+@use '../abstract/mixins';
+
+header {
+    background: variaveis.$gradiente-primario;
+    padding: 2rem;
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.6rem;        
+        .linha {
+            border-top: 1px solid variaveis.$cor-primaria;
+            width: 80%;
+        }
+        ul {
+            display: flex;
+            gap: 2rem;            
+            li {
+                list-style-type: none;
+            }
+            a {
+                text-decoration: none;
+                @include mixins.set_fonte(variaveis.$fonte-textos, 1.3rem, variaveis.$cor-primaria, 400);
+                &:hover {
+                    font-weight: 900;
+                }    
+            }
+        }
+    }
+
+    #home {
+        max-width: 1040px;
+        @include mixins.margem-central(80%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .textos-home {
+            max-width: 464px;            
+            h1 {
+                @include mixins.set_fonte(variaveis.$fonte-titulos, 2.6rem, variaveis.$cor-primaria, 400);
+                margin-bottom: 2rem;
+                span {
+                    @include mixins.set_fonte(variaveis.$fonte-titulos, 2.6rem, variaveis.$cor-secundaria, 400);
+                }           
+            }
+        }
+        .img-home {
+            max-width: 474px;
+            img {
+                width: 100%;
+            }                
+        }
+        .btn-main {
+            background-color: variaveis.$cor-secundaria;
+            border-radius: 40px;
+            padding: 24px;
+            width: 280px;
+            @include mixins.set_fonte(variaveis.$fonte-textos, 1.3rem, white, 600);
+            border: none;
+            &:hover {
+                background-color: variaveis.$cor-primaria;
+                transition: 0.3s;
+            }    
+        }
+    }
+}

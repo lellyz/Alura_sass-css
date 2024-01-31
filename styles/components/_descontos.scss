@@ -1,0 +1,38 @@
+@use '../abstract/variaveis';
+@use '../abstract/mixins';
+
+#desconto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    h4 {
+        @include mixins.set_fonte(variaveis.$fonte-titulos, 1.9rem, variaveis.$cor-primaria, 400);
+    }
+    p {
+        @include mixins.set_fonte(variaveis.$fonte-textos, 1.3rem, variaveis.$cor-primaria, 400);
+    }
+    .input-btn {
+        $largura-input: 790px;
+        width: $largura-input;
+        height: 65px;
+        border: 1px solid variaveis.$cor-secundaria;
+        margin: 0 auto;
+        border-radius: 32px;
+        display: flex;
+        input {
+            @include mixins.set_fonte(variaveis.$fonte-textos, 1.3rem, variaveis.$cor-primaria, 400);
+            width: calc($largura-input * 0.65);
+            border: none;
+            outline: none;
+            margin-left: 2rem;
+        }
+        button {
+            @include mixins.set_fonte(variaveis.$fonte-textos, 1.3rem, white, 400);
+            width: calc($largura-input * 0.35);
+            background-color: variaveis.$cor-secundaria;
+            border-radius: 0 65px 65px 0;
+            border: none;
+        }
+    }
+}
